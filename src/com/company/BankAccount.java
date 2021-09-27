@@ -3,14 +3,21 @@ package com.company;
 public class BankAccount {
     private double balance;
     private float interestRate;
+    private int accountID;
+    private static int nextID = 1000;
+
 
     public BankAccount(){
         interestRate = 0.02f;
+        accountID = nextID;
+        nextID++;
     }
 
     public BankAccount (double initialBalance, float initialRate){
         balance = initialBalance;
         interestRate = initialRate;
+        accountID = nextID;
+        nextID += 1;
     }
 
     public double addInterest(){
@@ -34,6 +41,10 @@ public class BankAccount {
     public double checkBalance(){
         return balance;
 
+    }
+
+    public int getAccountID(){
+        return accountID;
     }
 
 }
