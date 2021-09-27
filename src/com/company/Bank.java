@@ -31,14 +31,24 @@ public class Bank {
     }
 
     private void addCustomer(Scanner inputReader) {
-        System.out.println("we got to add customer, which sin't ");
+        inputReader.nextLine();//eats \n from previous call to nextInt
+        System.out.print("Enter the new Customer's name: ");
+        var newCustomerName = inputReader.nextLine();
+        System.out.print("Enter the new Customer's Tax ID (SSN)");
+        var newCustomerTaxId = inputReader.nextInt();
+        var newCustomer = new Customer(newCustomerName, newCustomerTaxId);
+        allCustomers.add(newCustomer);
+        System.out.println("Success! Created new Customer with name: " +
+                newCustomer.getName() + " and TaxID; " + newCustomer.getID());
     }
 
     private void printMenu() {
+        System.out.println("==================================================");
         System.out.println("What do you want to do next: ");
         System.out.println("   [1] Exit the program");
         System.out.println("   [2] Add a new customer");
         System.out.println("   [3] Get Help");
+        System.out.println("==================================================");
         System.out.println("Type the number of the option you want");
     }
 }
